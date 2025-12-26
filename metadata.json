@@ -1,0 +1,7 @@
+{
+  "name": "Império Barbearia Club",
+  "description": "Aplicativo premium para agendamentos, programa de fidelidade e serviços da Império Barbearia.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
