@@ -1,5 +1,5 @@
 
-import { BarberService, Promotion, UserRank } from './types';
+import { BarberService, Promotion } from './types';
 
 export const SERVICES: BarberService[] = [
   {
@@ -17,68 +17,45 @@ export const SERVICES: BarberService[] = [
     description: 'Degradê moderno (Fade) com acabamento detalhado.'
   },
   {
-    id: '7',
-    name: 'Corte com Tesoura',
-    price: 40,
-    duration: '1h',
-    description: 'Corte inteiramente na tesoura para um caimento mais natural e clássico.'
-  },
-  {
     id: '3',
-    name: 'Barba Desenhada ou Tirada',
-    price: 20,
-    duration: '30 min',
-    description: 'Desenho preciso da barba ou remoção completa com navalha.'
+    name: 'Barba Imperial',
+    price: 25,
+    duration: '35 min',
+    description: 'Desenho preciso com toalha quente e navalha.'
   },
   {
     id: '4',
-    name: 'Combo Cabelo e Barba',
+    name: 'Combo Rei (Cabelo + Barba)',
     price: 50,
-    duration: '1h 15min',
-    description: 'A experiência completa: corte e barba com desconto no combo.'
+    duration: '1h 20min',
+    description: 'A experiência completa do Império com desconto no combo.'
   },
   {
     id: '5',
     name: 'Sobrancelha',
-    price: 8,
-    duration: '10 min',
-    description: 'Alinhamento e limpeza do design da sobrancelha.'
+    price: 10,
+    duration: '15 min',
+    description: 'Limpeza e alinhamento do design.'
   },
   {
     id: '6',
-    name: 'Pezinho',
-    price: 8,
-    duration: '10 min',
-    description: 'Limpeza e contorno do acabamento do cabelo.'
+    name: 'Pigmentação',
+    price: 15,
+    duration: '20 min',
+    description: 'Cobertura de falhas e realce do contorno.'
   }
 ];
 
 export const PROMOTIONS: Promotion[] = [
   {
     id: 'p1',
-    title: 'Combo Rei do FDS',
-    description: 'Combo Cabelo + Barba por apenas R$ 45 aos sábados.',
-    originalPrice: 50,
-    discountPrice: 45
+    title: 'Terça Maluca',
+    description: 'Corte Social por apenas R$ 20,00 o dia todo.',
+    discountPrice: 20
   },
   {
     id: 'p2',
-    title: 'Amigo do Império',
-    description: 'Traga um novo súdito e ganhe 10% de desconto no seu próximo serviço.',
+    title: 'Clube Fidelidade',
+    description: 'Complete 5 selos e ganhe o 6º corte totalmente grátis!',
   }
 ];
-
-export const RANKS_INFO = {
-  [UserRank.SOLDIER]: {
-    minCuts: 0,
-    benefits: 'Início da jornada no Império.'
-  },
-  [UserRank.NOBLE]: {
-    minCuts: 3,
-    benefits: '5% de desconto em qualquer serviço.'
-  },
-  [UserRank.KING]: {
-    minCuts: 5,
-    benefits: 'PRÓXIMO CORTE GRÁTIS + 10% de desconto fixo.'
-  }
-};
