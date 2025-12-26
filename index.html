@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Império Barbearia Club</title>
   
   <link rel="manifest" href="manifest.json">
@@ -17,6 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   
   <style>
+    :root {
+      --gold: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #000;
@@ -26,24 +29,35 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
+      height: 100vh;
+      width: 100vw;
     }
     .font-royal { font-family: 'Cinzel', serif; }
     .gold-gradient {
-      background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+      background: var(--gold);
     }
     .gold-text {
-      background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+      background: var(--gold);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 900;
     }
     #root {
-      height: 100vh;
+      height: 100%;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+    /* Estilização da scrollbar para ficar elegante no desktop também */
+    #root::-webkit-scrollbar {
+      width: 4px;
+    }
+    #root::-webkit-scrollbar-track {
+      background: #000;
+    }
+    #root::-webkit-scrollbar-thumb {
+      background: #B38728;
+      border-radius: 10px;
+    }
   </style>
 
   <script type="importmap">
@@ -59,10 +73,12 @@
 </head>
 <body>
   <div id="root"></div>
+  <!-- Script de entrada corrigido -->
+  <script type="module" src="index.tsx"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js');
+        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW error:', err));
       });
     }
   </script>
